@@ -2,13 +2,17 @@
 {
   "modid": "timechanger",
   "name": "TimeChanger",
-  "description": "",
-  "version": "1.0",
-  "mcversion": "1.8.9",
-  "url": "",
+  "description": "A Forge mod ported from 1.8.9 to 1.12 - 1.12.2 to change your time locally wherever!
+  §eCredits to ConorDoesMC §rfor:
+    - helping me learn,
+    - clean-up code,
+    - and switch to IntelliJ. <3",
+  "version": "1.1",
+  "mcversion": "1.12.2",
+  "url": "https://syns.me/mods",
   "updateUrl": "",
-  "authorList": ["Fyu"],
-  "credits": "Ported to 1.8.9 by 2Pi",
+  "authorList": ["Fyu", "syns"],
+  "credits": "Ported to 1.12 - 1.12.2 by syns & ConorDoesMC",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

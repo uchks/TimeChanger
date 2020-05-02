@@ -1,36 +1,35 @@
 package pw.cinque.timechanger.commands;
 
-import net.minecraft.client.*;
-import net.minecraft.command.*;
-import pw.cinque.timechanger.*;
-import net.minecraft.util.*;
+import com.mojang.realmsclient.gui.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentString;
+import pw.cinque.timechanger.TimeChanger;
+import pw.cinque.timechanger.TimeType;
 
-public class CommandSunSet extends CommandBase
-{
-    private Minecraft mc;
-    
+public class CommandSunSet extends CommandBase {
+    private final Minecraft mc;
+
     public CommandSunSet() {
         this.mc = Minecraft.getMinecraft();
     }
-    
-    public String getCommandName() {
+
+    public String getName() {
         return "sunset";
     }
-    
-    public String getCommandUsage(final ICommandSender sender) {
+
+    public String getUsage(final ICommandSender sender) {
         return "/sunset";
     }
-    
-    public void processCommand(final ICommandSender sender, final String[] args) {
+
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
         TimeChanger.TIME_TYPE = TimeType.SUNSET;
-        sender.addChatMessage(new ChatComponentText("Time set to sunset.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+        sender.sendMessage(new TextComponentString(ChatFormatting.GREEN + "Time set to sunset."));
     }
-    
+
     public int getRequiredPermissionLevel() {
         return 0;
-    }
-    
-    public boolean canCommandSenderUseCommand(final ICommandSender sender) {
-        return true;
     }
 }

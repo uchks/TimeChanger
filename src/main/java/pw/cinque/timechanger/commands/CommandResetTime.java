@@ -1,36 +1,36 @@
 package pw.cinque.timechanger.commands;
 
-import net.minecraft.client.*;
-import net.minecraft.command.*;
-import pw.cinque.timechanger.*;
-import net.minecraft.util.*;
+import com.mojang.realmsclient.gui.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentString;
+import pw.cinque.timechanger.TimeChanger;
+import pw.cinque.timechanger.TimeType;
 
-public class CommandResetTime extends CommandBase
-{
-    private Minecraft mc;
-    
+public class CommandResetTime extends CommandBase {
+    private final Minecraft mc;
+
     public CommandResetTime() {
         this.mc = Minecraft.getMinecraft();
     }
-    
-    public String getCommandName() {
+
+    public String getName() {
         return "resettime";
     }
-    
-    public String getCommandUsage(final ICommandSender sender) {
+
+    public String getUsage(final ICommandSender sender) {
         return "/resettime";
     }
-    
-    public void processCommand(final ICommandSender sender, final String[] args) {
+
+    public void execute(MinecraftServer server, ICommandSender sender, String[] args) {
         TimeChanger.TIME_TYPE = TimeType.VANILLA;
-        sender.addChatMessage(new ChatComponentText("Now using vanilla time.").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.GREEN)));
+        sender.sendMessage(new TextComponentString(ChatFormatting.GREEN + "Now using vanilla time."));
+
     }
-    
+
     public int getRequiredPermissionLevel() {
         return 0;
-    }
-    
-    public boolean canCommandSenderUseCommand(final ICommandSender sender) {
-        return true;
     }
 }
